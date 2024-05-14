@@ -1,0 +1,12 @@
+.idea/
+*.pyc
+.vscode/
+*.log
+*.pot
+media/users/
+media/channel/
+media/group_chat/
+local_*.py
+*.sqlite3
+__pycache__/
+backup/
