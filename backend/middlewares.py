@@ -27,7 +27,7 @@ class JwtAuthMiddleware(BaseMiddleware):
         self.inner = inner
 
     async def __call__(self, scope, receive, send):
-        close_old_connections()
+        # close_old_connections()
         token = parse_qs(scope["query_string"].decode("utf8")).get('token')
         if token:
             try:
