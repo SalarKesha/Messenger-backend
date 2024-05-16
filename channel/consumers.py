@@ -16,6 +16,7 @@ class ChannelConsumer(AsyncJsonWebsocketConsumer):
             # return
         self.channel_member = await self.get_channel_member(self.user)
         if self.channel_member:
+            await self.update_last_visit(self.channel_member)
             await self.channel_layer.group_add(self.chat_room_id, self.channel_name)
             await self.accept()
         else:

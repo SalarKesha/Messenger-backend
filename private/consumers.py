@@ -15,6 +15,7 @@ class PrivateChatConsumer(AsyncJsonWebsocketConsumer):
         if not self.user.is_authenticated:
             await self.close()
         if await self.check_permission(self.user):
+            await self.update_last_visit(user=self.user)
             await self.channel_layer.group_add(self.chat_room_id, self.channel_name)
             await self.accept()
         else:
